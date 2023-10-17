@@ -1,0 +1,713 @@
+Lecture 1 + 2
+- Review syllabus 
+- Quiz on basic AI
+
+- Birth (Dawn) of AI
+  - 1956, where John McCarthy from MIT 
+  - he founded the Stanford AI lab
+  
+- Aim for general principles:
+ - Every aspect for learning or any other feature of intelligence 
+can be so precisely described that a machine can be made to simulate it.
+
+- early successes 
+  - 1952: Checkers 
+  - Samuel 
+
+  - 1955: Newell & Simon's Logic 
+
+- Example: underwhelming results 
+ machine translation
+ - The spirit is willing but the flesh is weak.
+   > The vodka is good but meat is rotten.
+   - 1966: cut off government funding
+   
+- Implications of early era
+  - complexity of AI problems (number of words, objects, concepts in the world)
+  - although AI was not solved, but a few generally useful technologies came out of the effort, such as 
+   programming language Lisp.
+
+  - 1970 to 1980's
+   Expert systems: Elicit specific domain knowledge from experts in form of rules:
+    if [premises] then [conclusion]
+    - DENDRAL: infer molecular structure from mass spectrometry
+     - a common task in analytical chemistry and biochemistry to determine the molecular structure of a sample.
+
+THESE ARE ALL CALLED "USE CASES"
+
+Use Cases - to get funding
+
+
+    - MYCIN: diagnose blood infections, recommend antibiotics
+
+    - XCON: to convert customer orders into parts specification; DEC saved $40 million a year by 1986 
+  
+Instead of the solve-it all optimism from the 1950s. Researchers focused on building expert systems. 
+
+Problem with the expert systems:
+- knowledge is not deterministic rules, need to model uncertainty.
+- required considerable manual effort to create rules, hard to maintain.
+
+- 1987: Collapse of Lisp machines and second AI winter
+
+- We know that this is not the end of AI story, but it actually it is not the beginning.
+
+- 1943
+     - Artificial neural networks
+      - 1943: introduced artificial neural networks, connected neural circuitry and logic (McCulloch/Pitts)
+
+- 1969: Preceptrons book showed that linear models could not solve XOR problem, killed NN research (Minsky/Papert)
+
+- Training networks 
+    - 1986: popularization of backpropagation for training multi-layer networks (Rumelhardt, Hinton, Williams)
+
+    - 1989: applied convolutional neural networks to recognize handwritten digits for USPS to recognize zip codes (LeCun)
+
+- Deep Learning 
+    - AlexNet (2012): huge gains in object recognition; transformed computer visions community overnight.
+
+    - AlphaGo (2016): deep reinforcement learning, defeat world champion Lee Sedol.
+
+
+Lecture 3
+- The real break for NN came in the 2010s. With the rise of compute like GPUs and large data sets such as imageNet which came in (2009).
+
+- AlexNet was a pivotal system that showed the promise of deep CNN on ImageNet, the benchmark was created by the computer vision community who was
+at the same time still skeptical of deep learning. Many other success stories in speech recognition and machine translation followed.
+
+- issues with NLP is the actual context: 
+- the ban on dancing at governor's desk! -> the legal paper to stop dancing at his desk to br signed. 
+- we gave them apple because they were hungry. 
+
+- There have been two intellectual traditions 
+- AI has always swung back and forth between the two 
+	- Logic -> 1943 and Deep Learning/NeuroScience
+
+- AI a melting pot
+ - Bayes rule (Bayes, 1763) from probability
+ - Least square regression (Gauss, 1795) from astronomy
+ - First-order logic (Frege, 1863) from logic
+ - Artificial NN (McCulloch/Pitts, 1943) from neuroscience
+   - for much of the 1990s and 2000s, NN were not popular in the ML community, and the field was dominated more by techniques such as Support Vector Machines (SVM) 
+inspired by statistical theory.
+ - Maximum likelihood (Fisher, 1922) from statistics
+ - Minimax games (Von Nuemann, 1944) economics
+ - Stochastic gradient descent (Robbins/Monro, 1951) from optimization
+ - Uniform cost search (Dijkstra, 1956) from algorithms
+ - Value iteration (Bellman, 1957) from control theory
+
+- Two different views of AI 
+  - AI agents: how can we create intelligence?
+  - AI tools: how can we benefit society?
+
+- An intelligent agent
+- Perception: Senses, Robotics, Language, Knowledge, Reasoning, Learning
+
+- As humans, we have to be able to perceive the world (computer vision), perform actions in it (robotics), and communicate
+with other agents (language).
+
+- We also have knowledge about the world from procedural like how to ride a bike, to declarative knowledge like remembering the capital of Texas, and using this knowledge 
+we can draw inferences and make decisions (reasoning)
+
+- Finally, we learn and adapt over time. We are born with none of the skills that we possess as adults, but rather the capacity to acquire them. Indeed ML has become the primary driver of many of the AI applications that we see today. 
+
+- Are we there yet? meaning producing an intelligent agent? 
+  - Machines: narrow tasks, millions of examples 
+  - Humans: diverse tasks, very few examples 
+
+  - The AI agents view is an inspiring quest to undercover the mysteries of intelligence and tackle the tasks that humans are good at. While there has been a lot of progress, 
+we still have a long way to go along some dimensions; for example, the ability to learn quickly from few examples or the ability to perform commonsense reasoning.
+
+  - There is still a huge gap between the regimes that humans and machines operate in. 
+   For example, AlphaGo learned from 19.6 million games, but can only do one thing: play Go.
+   Humans on the other hand, learned from a much wider set of experiences, and can do many things.
+
+ - The other view of AI is less about re-creating the capabilties that humans have, and more about how to benefit humans. For example, targeted advertizing, news, 
+or product recommendation, web search, supply chain management, predicting poverty, computer vision techniques, saving energy by cooling data centers (optimizing energy efficiency).
+
+
+
+Lecture 4 - CS 4365
+
+- Uninformed Search Strategies in Artificial Intelligence 
+  - Search Algorithms which operates in Brute force method; meaning all possibilities 
+  to try; for NFS it will be (n-1)! where n = # of nodes
+  - Does not have additional information about the states or nodes
+  - Referred to as a Blind Search
+  - Time consuming
+  - Performance can be measured by:
+       - Completeness -> Does the algorithm find a solution
+       - Optimality -> Does the algorithm produce an optimal solution among multiple solutions
+       - Time complexity -> how much time does the algorithm take
+       - Space complexity -> how much memory is required to perform the search?
+
+- Breadth First Search (BFS)
+- Depth First Search (DFS)
+- Depth Limited DFS 
+- Iterative Deepening DFS
+- Bidirectional Search
+- Uniform Cost Search
+
+
+- BFS (shallow nodes)
+     - Can be implemented using what DS? FIFO data structure
+     - Completeness -> Yes, it does give a solution
+     - Optimality -> Only when all nodes have the same cost
+     - Time & Space
+       - In DS: increases with the depth of the tree 
+          - time is: O(|V| + |E|) 
+          - space is: O(|V|)
+
+       - in AI: O(b^d) where b is the branch factor (n-ary), d is the depth 
+
+- DFS (deep nodes)
+    - Can be implemented using LIFO (stack) data structure
+    - Used for detecting cycles, path finding, topological sorting
+    - Completeness -> DFS can get stuck in infinite loop which is why it is not complete; so may or may not have 
+a solution.
+    - Time & Space:
+      - In DS: increases with the depth of the tree 
+          - time is: O(|V| + |E|) 
+          - space is: O(|V|)
+      - in AI: O(b^d)
+
+ - Bidirectional Search
+     - Two simultaneous searches from an initial node and a goal node, stopping when 
+     the two meet
+     - Completeness -> with BFS yes, with DFS no (may or may not)
+     - Time & Space: 
+        - in DS: same as BFS and DFS
+        - in AI: O(2(b^(d/2))), b is branch factor, d is depth
+        - in asymptotic analysis: O(b^d)
+
+
+- Informed Search
+
+Lecture 5
+- Uninformed Search Strategies in Artificial Intelligence 
+  - Search Algorithms which operates in Brute force method; meaning all possibilities 
+  to try; for NFS it will be (n-1)! where n = # of nodes
+  - Does not have additional information about the states or nodes
+  - Referred to as a Blind Search
+  - Time consuming
+  - Performance can be measured by:
+       - Completeness -> Does the algorithm find a solution
+       - Optimality -> Does the algorithm produce an optimal solution among multiple solutions
+       - Time complexity -> how much time does the algorithm take
+       - Space complexity -> how much memory is required to perform the search?
+
+Depth Limited DFS (Stack)
+	- Predetermined depth 
+	- Memory efficient
+	- Not optimal
+	    - may or may not have a solution
+	- Helps in solving the infinite path probelm in DFS
+	- Termination conditions:
+	  - Reaching predetermined depth and find no solution
+	  - Reaching predetermined depth and find a solution
+        - Time & Space complexity
+	  - O(b^d), space: O(b*d) 
+        - Incompleteness 59.5
+
+
+Bidirectional Search Algorithm
+- Time
+    - AI: O(2(b^d/2))) -> worst case: O(b^d)
+
+- Iterative Deepening DFS
+    - FYI
+
+- Uniform Cost Search
+    - Backtracking allowed
+    - For weighted tree/graph traversal 
+    - Priority Queue is used
+    - Optimal Solution 
+    - but can be stuck in an infinite loop
+
+8-puzzle problem without heuristic
+
+
+Given               Goal
+1 2 3               1 2 3
+  4 6               4 5 6
+7 5 8               7 8
+
+- 8 puzzle probelm
+  - Blind Search (explore all possibilties)
+  - BFS
+  - O(b^d): average branching factor 2*4 + 3*4 + 1*4 = 24/9 ~ 2.6 ~ 3
+  - Worst case scenario depth can go up to 20 -> O(3^20)
+
+
+- Informed Search
+  - Heuristic: simple solution to a complex problem
+  - BFS -> Best First Search
+  - A* Search
+  - Problem reduction
+  - Hill climbing
+  - AO* Search?
+  - Other *
+
+  - Informed heuristic search
+      - the functions are the most common form in which additional knowledge of the 
+     problem is imparted to the search algorithm.
+     - a node is selected for expansion based on an evaluation function, f(n)
+     - the evaluation function is constructed as a cost estimator
+      - so the node with the lowest evaluation is expanded first
+     - this implementation is identical to uniform cost search
+
+ - type of heuristic
+    - admissible: in this function, we never overestimate the cost of reaching the 
+    goal: H(n) <= H`(n) {goal}
+        - it is always less than or equal to actual cost of lowest cost path from node n to goal node.
+
+    - non-admissible: overestimate: H(n) > H`(n)
+    
+
+- Best First Search 
+   - Greedy Search (BFS or DFS)
+   - Uses evaluation algorithm (function) to decide which adjacent node is most 
+   promising and then explored.
+      - Priority Queue is used to store cost of nodes.
+   Loop
+       if PQ = empty return fail
+       else 
+          node <- Remove_first(PQ) 
+          if node = Goal node
+             return path from initial to node
+          else
+              generate all successors of node and insert newly generated node
+              into PQ according to cost value
+   End Loop
+
+
+- A* Search
+	- Path finding algorithm is a technique for converting a graph - into a route through the graph.
+        - What is A*
+          - It is one specific path finding algorithm, first published in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael. It is generally 
+        considered to be the best algorithm to use when there is no opportunity to pre-computer the routes and there are no constraints on memory usage.
+       
+        ComplexityL O(b^d) in the worst case 
+         
+        A* is actually a variance on Dijkstra's algorithm, where there is an additional information provided to help select the next node to use. Uses both, dijkstra's + BFS.
+        - The additional information does not need to be perfect.
+         
+ 
+Best Search Algorithm
+
+A* Algorithm
+ S -> A -> B -> D
+      A -> C -> D
+           C -> G
+ S -> G
+                D -> G
+
+
+S -> A = 1
+A -> B = 2
+B -> D = 5
+A -> C = 1
+C -> D = 3
+C -> G = 4
+S -> G = 10
+D -> G = 2
+
+
+
+State           O(n)
+S                5
+A                3
+B                4
+C                2
+D                6
+G                empty set
+
+
+Paths
+S, A, C, D, G = 7
+S, A, C, G = 6
+S, A, B, D, G = 10
+S, G = 10
+
+
+
+- State based models
+   - Farmer has to cross the river and to take the Wolf, Sheep, Grass
+   
+   - F, W, S, G -> River
+   - How many crossings? 4, 5, 6, or no solution?
+       1. Take the sheep across
+       2. Return alone
+       3. Take the grass
+       4. Leave the Wolf where he is
+   
+   - Paradigm
+       - model: linear, NN, etc...
+       - inference: evaluate the function
+       - learning: like using gradient descent
+
+   - Application: route finding
+      - Objective: shortest? fastest? scenic? 
+      - Action: go straight, make a left, make a right
+      
+   - model types
+       - Reflex models
+          x -> f -> single action y [-1, +1]
+       - Search based models
+          x -> f -> action sequence (a1, a2, a3, a4, ....)
+               - key: need to consider consequences of actions
+
+       - Tree Search, Dyanmic programming, Uniform Cost Search
+   
+   - Formal Definition of Search Problem
+     S_start: Starting state
+     Actions(s): possible actions on state s
+     Cost(s, a): action's cost
+     Succ(s, a): successors
+     IsEnd(s): reach the end state?
+
+  - Example: transportation 
+      - Street with blocks numbered 1 to n
+      - Walking from s to s + 1 takes 1 minute 
+      - Riding a bus from s to 2s takes 2 minutes
+      - How to travel from 1 to n in the least amount of time
+
+
+Lecture 9 - CS 4365F23
+	- Backtracking Search
+	
+	Algorithm	| 	Cost	|	Time	|	Space
+	BTS			Any		O(b^D)		O(D)  O(2^50)
+	DFS			0		O(b^d)		O(D)
+	   - idea: backtracking + stop when find the first end state
+	BFS			c >= 0		O(b^d) 	        O(b^d)
+        DFS - ID	
+	
+	DFS - iterative depth 
+            - Assume action costs Cost(s, a) = c for some c >= 0
+            - Idea: modify DFS to stop at a maximum depth 
+	    - Call DFS for max depths: 1, 2, 3, ...
+               - DFS on d asks: Is there a solution with d actions?
+
+	    - b actions per state, solution size is d
+                Space: O(d)
+		Time: O(b^d)
+
+	Example: Transportation Problem
+	Street with blocks numbered 1 to n.
+	Walking from s to s+1 takes 1 minute
+	Taking a magic bus from s to 2s takes 2 minutes
+	How to travel from 1 to n in the least time.
+
+
+Lecture 11 - 10.02
+- Exam on Oct 25
+- HW assigned today
+
+- Game Tree (Onenote)
+
+- Two-players: zero sum game
+- Players: [agent, opp]
+- Definition: 
+   S_start: starting state
+   Actions(s): possible action from state s
+   Succ(s, a): resulting state if choose action a in state s.
+   IsEnd(s): whether s is in end state (game over)
+   Utility(s): agent's utility for end state s
+   Plays(s) e Players who controls state s
+
+Example: chess
+    Players = [white, black]
+    State s: (position of all players, whose turn it is)
+    Actions(s): legal chess moves that Player(s) can make.
+    IsEnd(s): whether s is checkmate or draw
+    Utility(s): +infinity if white piece wins, 0 if draw, -infinity if black piece wins
+
+Characteristics of games: 
+    - all the utility is at the end states.
+    - different players in control of different states.
+
+- The halving game 
+    - Start with number N 
+    - Players take turns either decrementing N or replacing N with N/2
+    - The player that is left with 0 wins
+
+- Policies
+  Deterministic policies: pi_p(s) e Actions(s)
+	action that player p takes in state s
+  
+  Stochastic policies: pi_p(s, a) e [0, 1]:
+	probability of player p taking action a in state s
+
+  Deterministic policy is an instance of Stochastic policy
+
+- see GameEvaluation example in pdf created using oneNote
+    - Example: game evaluation
+    - pi_agent(s) = A
+    - pi_opp(s, a) = 1/2 for a e Actions(s) 
+
+- MinMax Algorithm
+    - Backtracking algorithm
+    - Best move strategy
+    - Max will try to maximize its utility (best move)
+    - Min will try to minimize its utility (worst move)
+    - Time analysis: O(b^d) where d is the depth or ply (moves)
+       - in chess O(35^100) b/c 35 choices per turn on average and depth on average is 
+     50 per player so 50*2; so Minmax algorithm is not a good choice for chess; there we use alpha-beta pruning.
+    - why can't we use BFS? b/c only 1 choice 
+
+    - Beam Search Algorithm
+      - Beam search only keeps the best (lowest-h) n nodes on open list
+      - n is the beam width
+          n: 1 -> hill climbing 
+          n: infinity, Best First Search 
+              - Beam seach is in between the hill climbing and Best First Search
+              - n > 1 & n < infinity 
+              
+   - Hill Climbing: 
+       - Local Heuristic function 
+           +1 for each block that is resting on the block that is supposed to be resting on.
+           -1 for each block that is resting on a wrong block
+           
+       - Global Heuristic function
+           - For each block that has the correct support structure: +1 to every block in the support structure 
+           - For each block that has the wrong support structure: -1 to every block in the support structure
+           - see OneNote 
+
+
+Lecture 12 - CS4365F23
+- Constraint Satisfaction Problems (CSP)
+- It is defined by:
+  X is a set of n variables X X_1, X_2, X_3, ..., X_n
+      - each defined by a finite domain D_1, D_2, D_3, ..., D_n of possible values
+  C is a set of constraints C_1, C_2, C_3, ..., C_n
+  
+  A solution is an assignment of values to the variables that satisfies all constraints.
+  
+  For a given CSP the problem is one of the following:
+      find all solutions 
+      find one solution 
+           just a feasible solution or
+           a reasonably good solution or 
+           the optimal solution 
+      determine if a solution even exists
+
+  How to view a CSP as a Search problem
+      - Initial state: in which all the variables are unassigned
+      - Successor function: assign a value to a variable from a set of possible values
+      - Goal test: check if all the variables are assigned and all the constraints are satisfied
+
+ How to solve CSP (see map coloring, sudoku game)
+     - Formulate the CSP as a search problem 
+         - Define: a search state has variables 1 ...k assigned
+         Variables k+1...n, as yet assigned
+     - Start state: all unassigned
+     - Goal state: all assigned, and all constraints satisfied
+     - Successors of a state with 1...k assigned and rest unassigned are all states 
+     with k+1 assigned a value from D
+     - Path cost: 0 is fine, we don't care, we just want any solution
+  
+    Backtracking Search
+        DFS search for CSPs with a single variable assignments is called backtracking search
+        - it backtracks when a variable has no legal values left to be assigned
+
+        - function BACKTRACKING-SEARCH(csp) -> will be available on elearning
+        
+    Graph coloring problem
+          - Domain: R, G, B
+          - Constraint: Adj regions cannot have the same color
+          - Which variable should be assigned next
+            - Choose the most contrained variable, and break ties that way.
+          - In which order should its values be tried
+               - Choose the least constraining value 
+          - Can we detect inevitable failure early?
+               - Forward checking, constraint propagation 
+
+          - Most constrained variable 
+             choose the variable with the fewest legal values 
+                 WA(red) -> NT (green) -> SA (blue)
+                 SA(blue) -> NT(green) -> Q(red) 
+
+How to solve CSP
+- Backtracking Search
+   - Backtracking algorithm
+        - function Backtracking-Search(csp) returns a solution, or a failure
+           return Recursive-Backtracking({ }, csp)
+
+        - function Recursive-Backtracking(assignment, csp) returns a solution, or failure 
+          if assignment is complete then return assignment
+          var <- select-unassigned-variable (variable[csp], assignment, csp)
+          for each value in order-domain-values(var, assignment, csp) do
+              if value is consistent with assignment according to Constraint[csp], then 
+                 add {var = value} to assignment
+                 result <- Recursive-Backtracking(assignment, csp)
+                 if result != failure then return result
+                 remove {var = value} from assignment 
+              return failure 
+
+         - Improving Background efficiency
+            General-purpose methods can give huge gains in speed:
+             1. Which variable should be assigned next?
+                 Chose the most constrained variable, and break ties by choosing the most constraining variable.
+
+                Value Selection Heuristic
+                     - Least Constraining Values
+             2. In what order should its values be tried?
+             3. Can we detect inevitable failure early?
+               - Consistency-Enforcing Procedure 1:
+                   Forward Checking (see png)
+                   - Idea: to keep track of remaining legal values for unassigned variables. Terminate search when any variable has no legal values.
+                   - forward checking does not do early detection for all failures
+                   - then we go to constraint propagation which repeatedly enforces constraints locally
+                   - Arc consistency: Simplest form of propagation 
+
+        - Knowledge Representation and Reasoning 
+           - Knowledge Representation 
+            - Human intelligence relies on a lot of background knowledge (the more you know, the easier many tracks become / "knowledge is power"
+
+           - Natural langauge understanding 
+            - Time flies like an arrow
+            - Fruit flies like bananas
+            - The spirit is willing but the flesh is weak
+            - The vodka is good but the meat is rotten
+
+          - Q. How did we encode (domain) knowledge so far? for search problems 
+               we need a knowledge-based systems approach 
+
+          - Knowledge-Based Systems / Agents 
+             - Key components:
+               -Knowledge base: a set of sentences expressed in some knowledge representation language
+               - inference / reasoning mechanisms to query what is known and to derive new information or make decisions.
+            
+             - Natural candidate: logical language (propositional / first order) combined with a logical inference mechanism
+
+
+
+Lecture 14 - CS 4365F23
+So far,                                   question
+        
+       data -> Learning -> model              ->    inference (a conclusion based on evidence and reasoning)
+                                              ->    answer
+
+       Example: search problems, MDPs, games, CSPs, Bayesian networks 
+ 
+- Modeling paradigm we have looked at
+    - State-based models: search problems, MDPs, games
+        Applications: route finding, game playing, etc...
+        (states, actions, and costs)
+       
+    - Variable-based models: CSPs, Bayesian networks
+        Applications: scheduling, tracking, medical diagnostics, etc...
+
+    - Logic-based models: propositional logic, first-order logic
+       Applications: theorem proving, verification, reasoning
+        (logical formula and inference rules)
+   
+    - History
+      - Logical was a dominent paradigm in AI before 1990s
+         - Problem 1: deterministic, did not handle uncertainity (probability addresses it)
+         - Problem 2: rule-based, didn't allow fine tuning from data (Machine Learning addresses this)
+         - Strength: provide expressiveness in a compact way (the ability to express complicated things in succint way)
+
+- Why do we want logic?
+  - Motivation: smart personal assistant
+       Tell information -> Assistant <- Ask Questions
+                     Use Natural Language 
+       - Need to:
+          - digest hetrogenous information
+          - reason deeply with that information 
+
+  - Natural language is very powerful
+      - How can we draw inferences using natural language 
+
+  - Example: 
+      - a dime is better than a nickel
+      - a nickel is better than a penny 
+      - therefore, a dime is better than a penny 
+
+      - since natural language is slippery
+         - A penny is better than nothing 
+         - Nothing is better than world peace 
+         - Therefore, a penny is better than world peace? False
+     
+      - Language is a mechanism for expression 
+          - Natural languages (informal):
+             English: Two divides even numbers
+             German: Zwei dividiern geraden Zahlen 
+
+          - Programming Languages (formal):
+              Python: def even(x): return x % 2 == 0
+              C++: bool even(int x) {return x %2 == 0;}
+
+          - Logical language (formal)
+             First-order-logic: For all x Even(x) -> Divides(x,2)
+
+          - Ingredients of a logic
+            Syntax
+              Example:
+                rain v Wet
+
+            Semantics: for each formula, specify a set of models (assignments / configurations of the world)
+               Example:
+                                  Wet
+                                 0 | 1
+                                 -----
+                            Rain 0 |
+                                 1
+              Inference rules: given f, what new formula g can be added that are guaranteed to follow f/g
+                 Examples:
+                     from Rain ^ Wet, derive Rain 
+          
+         - Syntax vs. Semantics
+             Syntax refers to what are valid expressions in the language?
+             Semantics refers to what do these expressions mean?
+
+             Different syntax, same semantics (5):
+                 2 + 3 <-> 3 + 2
+                 
+             Same syntax, different semantics (1 vs 1.5): 
+                 3 / 2 !<->! 3 / 2
+                 3 / 2 (Python 2.7) !<->! 3 / 2 (Python 3)
+
+          - Logics (is a balance between expressivity and computational efficiency)
+             - Propositional Logic
+             - Modal logic 
+             - First order logic
+             - Second order logic
+
+             Propositional symbols
+              - you may have been exposed to these in discrete, so then why here?
+                   - you using vs general algorithms that can operate on logic
+            
+           - Syntax of propositional logic 
+               - Propositional symbols (atomic formulae): A, B, C, etc...
+               - Logic connections: not, and, or implies, if
+               - Build up formulas recursively - if f and g are formulas, so are these also formulas?
+                  - Negation: not f 
+                  - Conjuction: f ^ g
+                  - Disjunction: f v g
+                  - Implication: f -> g
+                  - Biconditional: f <-> g
+                  
+                  - formulas: 
+                      - valid: A, not A, not B -> C, not A ^ (not B -> C), (not B -> C) v (not B v D),
+                                not not A
+                      - not valid: A not B, A + B
+
+
+
+
+
+
+
+
+      
+      
+                                                    
+
+
+
+
+
+
+   
